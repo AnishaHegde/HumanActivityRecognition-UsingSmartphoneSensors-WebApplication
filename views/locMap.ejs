@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Location - Insighter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Insighter Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function() {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<!-- jQuery -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script src="/js/jquery-1.10.2.min.js"></script>
+	
+	<link href="/css/animate.css" rel='stylesheet' type='text/css' />
+	<
+	<!--skycons-icons-->
+	<script type="text/javascript" src="/js/skycons.js"></script>
+	<!--//skycons-icons-->
+
+	<!-- AngularJs library -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="angular/home.js"></script>
+</head>
+
+<body ng-app="userDashboard" ng-controller="userDashboardCntrl" ng-init="getUserLocationDetails();">
+	<div class="page-container">
+		<!--/content-inner-->
+		<div class="left-content">
+			<div class="inner-content">
+				<!-- header-starts -->
+				<div class="header-section">
+					<!--menu-right-->
+					<div class="top_menu">
+					</div>
+
+					<!--/profile_details-->
+					<div class="" style="float: right;">
+						<ul class="nofitications-dropdown">
+							<li class="dropdown note dra-down">
+
+							</li>
+							
+
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+					<!--//profile_details-->
+				</div>
+				<!--//menu-right-->
+				<div class="clearfix"></div>
+			</div>
+			<!-- //header-ends -->
+
+			<div class="outter-wp">
+				<div class="map-bottm">
+					<h3 class="inner-tittle two">User Location Map</h3>
+					<div class="graph">				
+						<div id="map"></div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!-- <script type="text/javascript">
+				var map;				
+				//var lat = 37.3357192;
+				//var lng = -121.8888963;
+				/*var lt = angular.element(document.querySelectorAll('[ng-controller="userDashboardCntrl"]')).scope().lat;
+				var lg = angular.element(document.querySelectorAll('[ng-controller="userDashboardCntrl"]')).scope().lng;*/
+				var lt = document.getElementById('lat').value;
+				var lg = document.getElementById('lng').value;
+
+				/*$(document).ready(function(){
+			        var $element = $('body[ng-controller="userDashboardCntrl"]');
+			        var scope = angular.element($element).scope();
+			        console.dir("My scope: " + $('[ng-controller="userDashboardCntrl"]').scope().lat);
+			    });*/
+
+				function initMap() {
+		        // Styles a map in night mode.
+		        var map = new google.maps.Map(document.getElementById('map'), {
+		          center: {lat: 37.3352, lng: -121.8811},
+		          zoom: 12,
+		          styles: [
+		            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+		            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+		            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+		            {
+		              featureType: 'administrative.locality',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'poi',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'poi.park',
+		              elementType: 'geometry',
+		              stylers: [{color: '#263c3f'}]
+		            },
+		            {
+		              featureType: 'poi.park',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#6b9a76'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'geometry',
+		              stylers: [{color: '#38414e'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'geometry.stroke',
+		              stylers: [{color: '#212a37'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#9ca5b3'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'geometry',
+		              stylers: [{color: '#746855'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'geometry.stroke',
+		              stylers: [{color: '#1f2835'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#f3d19c'}]
+		            },
+		            {
+		              featureType: 'transit',
+		              elementType: 'geometry',
+		              stylers: [{color: '#2f3948'}]
+		            },
+		            {
+		              featureType: 'transit.station',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'geometry',
+		              stylers: [{color: '#17263c'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#515c6d'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'labels.text.stroke',
+		              stylers: [{color: '#17263c'}]
+		            }
+		          ]
+		        });
+
+		        /* Start marker code*/
+		        var loc = new google.maps.LatLng(lt, lg);
+		  		console.log("Lat: " + lt);
+		  		console.log("Lng: " + lg);
+
+	  			var marker = new google.maps.Marker({		
+				position : loc,
+				map : map,
+				animation: google.maps.Animation.DROP,
+				icon : {
+						url: '/images/foot.png',
+						scaledSize: new google.maps.Size(20, 32),
+						origin: new google.maps.Point(0, 0),
+						anchor: new google.maps.Point(0, 32)
+					}
+				});
+				marker.setMap(map); 
+				/* End marker code */
+
+				/* Start infowindow code*/
+				var contentString = '<div id="content" style="width:250px;height:300px;"></div>';
+
+				var infoWindow = new google.maps.InfoWindow({
+					content: contentString
+				});
+				/* End infowindow code*/
+
+				/* Start add infowindow to location */
+				google.maps.event.addListener(marker, 'click', (function(marker, infoWindow) {
+					return function() {
+						var pano = null;
+						infoWindow.open(map, marker);
+						google.maps.event.addListener(infoWindow, 'domready', function() {
+							if (pano != null) {
+								pano.unbind("position");
+								pano.setVisible(false);
+							}
+							pano = new google.maps.StreetViewPanorama(document.getElementById("content"), {
+								navigationControl: true,
+								navigationControlOptions: {
+									style: google.maps.NavigationControlStyle.ANDROID
+								},
+								enableCloseButton: false,
+								addressControl: false,
+								linksControl: false
+							});
+							pano.bindTo("position", marker);
+							pano.setVisible(true);
+						});
+
+						google.maps.event.addListener(infoWindow, 'closeclick', function() {
+							pano.unbind("position");
+							pano.setVisible(false);
+							pano = null;
+						});
+					};
+				})(marker, infoWindow));
+				/* End add infowindow to location */
+
+
+		      }//end initMap
+			</script> -->
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnagySYaSyZDEVuA6C33pUQOiEDkLcmuA&callback=" async defer></script>
+
+			<!--footer section start-->
+			<footer>
+				<p>&copy 2016 Insighter. All Rights Reserved</p>
+			</footer>
+			<!--footer section end-->
+		</div>
+		<!--/sidebar-menu-->
+		<div class="sidebar-menu">
+			<header class="logo">
+				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+				<a href="index.html"> <span id="logo"> <h1>Insighter</h1></span>
+					<!--<img id="logo" src="" alt="Logo"/>-->
+				</a>
+			</header>
+			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+			<!--/down-->
+			<div class="down" ng-init="getCurrentUserDetails();">
+				<a href="index.html"><img src="images/user.png" width="100" style="border: none; border-radius: 0;">
+				</a>
+				<a href="index.html"><span class=" name-caret">{{user_profile.firstName}} {{user_profile.lastName}}</span></a>
+				<ul>
+					<li><a class="tooltips" href="/profile"><span>Profile</span><i class="lnr lnr-user"></i></a>
+					</li>
+					<li><a class="tooltips" href="/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a>
+					</li>
+				</ul>
+			</div>
+			<!--//down-->
+			<div class="menu">
+				<ul id="menu">
+					<li ><a href="/"><i class="glyphicon glyphicon-home"></i> <span>Home</span></a>
+					</li>
+					<li><a href="/emergencyContact"><i class="glyphicon glyphicon-earphone"></i> <span>Emergency Contact</span></a>
+					</li>
+					<li class="active"><a href="/locMap"><i class="glyphicon glyphicon-map-marker"></i> <span>Location</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--//content-inner-->
+
+	<div class="clearfix"></div>
+	</div>
+	<script>
+		var toggle = true;
+
+		$(".sidebar-icon").click(function() {
+			if (toggle) {
+				$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+				$("#menu span").css({
+					"position": "absolute"
+				});
+			} else {
+				$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+				setTimeout(function() {
+					$("#menu span").css({
+						"position": "relative"
+					});
+				}, 400);
+			}
+
+			toggle = !toggle;
+		});
+	</script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+	
+
+</body>
+
+</html>

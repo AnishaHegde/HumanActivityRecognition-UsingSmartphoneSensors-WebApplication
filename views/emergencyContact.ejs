@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Emergency Contact - Insighter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Insighter Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- jQuery -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/amcharts.js"></script>	
+	<script src="js/serial.js"></script>	
+	<script src="js/light.js"></script>	
+	<script src="js/radar.js"></script>	
+	<link href="css/barChart.css" rel='stylesheet' type='text/css' />
+	<link href="css/fabochart.css" rel='stylesheet' type='text/css' />
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<!--clock init-->
+	<script src="js/css3clock.js"></script>
+	<!--Easy Pie Chart-->
+	<!--skycons-icons-->
+	<script src="js/skycons.js"></script>
+
+	<script src="js/jquery.easydropdown.js"></script>
+
+	<!--//skycons-icons-->
+</head> 
+<body ng-app="userDashboard" ng-controller="userDashboardCntrl" ng-init="getCurrentUserWithEmergencyContact();">
+	<div class="page-container">
+		<!--/content-inner-->
+		<div class="left-content">
+			<div class="inner-content">
+				<!-- header-starts -->
+				<div class="header-section">
+					<!--menu-right-->
+					<div class="top_menu">
+					</div>
+
+					<!--/profile_details-->
+					<div class="" style="float: right;">
+						<ul class="nofitications-dropdown">
+							<li class="dropdown note dra-down">
+
+							</li>
+								
+
+							<div class="clearfix"></div>	
+						</ul>
+					</div>
+					<div class="clearfix"></div>	
+					<!--//profile_details-->
+				</div>
+				<!--//menu-right-->
+				<div class="clearfix"></div>
+			</div>
+			<!-- //header-ends -->
+			
+			<div class="outter-wp">
+					<div class="forms-main">
+						<h2 class="inner-tittle">Emergency Contact Information</h2>
+						<div class="graph-form">
+							<div class="validation-form">
+								<!---->
+
+								<form>
+									<div class="vali-form">
+										<div class="col-md-6 form-group1">
+											<label class="control-label">First Name</label>
+											<input type="text" ng-model="user_emergency_contact.firstName" placeholder="First Name" required="">
+										</div>
+										<div class="col-md-6 form-group1 form-last">
+											<label class="control-label">Last Name</label>
+											<input type="text" ng-model="user_emergency_contact.lastName" placeholder="Last Name" required="">
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+
+									<div class="col-md-12 form-group1 group-mail">
+										<label class="control-label">Email</label>
+										<input type="text" ng-model="user_emergency_contact.email" placeholder="Email" required="">
+									</div>
+									<div class="clearfix"> </div>
+									
+									<div class="vali-form">
+										<div class="col-md-12 form-group1 form-last">
+											<label class="control-label">Mobile Number</label>
+											<input type="text" ng-model="user_emergency_contact.phone" placeholder="Mobile Number" required="">
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+
+									<div class="col-md-12 form-group button-2">
+										<button type="submit" class="btn btn-primary" ng-click="saveEmergencyContact();">Save</button>
+										<button type="reset" class="btn btn-default">Reset</button>
+									</div>
+									<div class="clearfix"> </div>
+								</form>
+
+								<!---->
+							</div>
+
+						</div>
+						<div class="alert alert-info" ng-if="msg !== undefined" role="alert">
+							<strong>{{msg}}</strong>
+						</div>
+					<!--//forms-->	
+				</div>
+			</div>
+
+			<!--footer section start-->
+			<footer>
+				<p>&copy 2016 Insighter. All Rights Reserved</p>
+			</footer>
+			<!--footer section end-->
+		</div>
+		<!--/sidebar-menu-->
+		<div class="sidebar-menu">
+			<header class="logo">
+				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Insighter</h1></span> 
+				<!--<img id="logo" src="" alt="Logo"/>--> 
+			</a> 
+		</header>
+		<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+		<!--/down-->
+		<div class="down">	
+			<a href="index.html"><img src="images/user.png" width="100" style="border: none; border-radius: 0;"></a>
+			<a href="index.html"><span class=" name-caret">{{user_profile.firstName}} {{user_profile.lastName}}</span></a>
+			<ul>
+				<li><a class="tooltips" href="/profile"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+				<li><a class="tooltips" href="/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+			</ul>
+		</div>
+		<!--//down-->
+		<div class="menu">
+			<ul id="menu" >
+				<li><a href="/dashboard"><i class="glyphicon glyphicon-home"></i> <span>Home</span></a></li>
+				<li class="active"><a href="/emergencyContact"><i class="glyphicon glyphicon-envelope"></i> <span>Emergency Contact</span></a></li>
+				<li><a href="/locMap"><i class="glyphicon glyphicon-map-marker"></i> <span>Location</span></a></li>
+
+
+
+			</ul>
+		</div>
+	</div>
+</div>
+<!--//content-inner-->
+
+<div class="clearfix"></div>		
+</div>
+<script>
+	var toggle = true;
+
+	$(".sidebar-icon").click(function() {                
+		if (toggle)
+		{
+			$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+			$("#menu span").css({"position":"absolute"});
+		}
+		else
+		{
+			$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+			setTimeout(function() {
+				$("#menu span").css({"position":"relative"});
+			}, 400);
+		}
+
+		toggle = !toggle;
+	});
+</script>
+<!--js -->
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- AngularJs library -->  
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script type="text/javascript" src="angular/home.js"></script>
+</body>
+</html>

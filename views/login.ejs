@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Insighter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- jQuery -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<!--clock init-->
+
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="71255748765-uj2ovaa6auu3i6sh6cpeh8mfv8b2dsdk.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head> 
+<body ng-app="userDashboard" ng-controller="userDashboardCntrl">
+	<!--/login-->
+
+	<div class="error_page">
+		<!--/login-top-->
+
+		<div class="error-top">
+			<h2 class="inner-tittle page">Insighter</h2>
+			<div class="login">
+				<h1 class="inner-tittle t-inner">Login</h1>
+				<br><br>
+				
+				<div class="g-signin2" data-onsuccess="onSignIn" style="width: 360px;"></div>
+				<p align="center">- OR -</p>
+				<form>
+					<input type="text" class="text" ng-model="email" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}" >
+					<input type="password" value="Password" ng-model="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+					<div class="submit"><input type="submit" ng-click="signInAccount();" value="Login"></div>
+					<div class="clearfix"></div>
+
+					<div class="new">
+						<p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>Forgot Password ?</label></p>
+						<p class="sign">Do not have an account ? <a href="/register">Sign Up</a></p>
+						<div class="clearfix"></div>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+
+
+		<!--//login-top-->
+	</div>
+
+	<!--//login-->
+	<!--footer section start-->
+	<div class="footer">
+		<p>&copy 2016 Augment . All Rights Reserved</p>
+	</div>
+	<!--footer section end-->
+	<!--/404-->
+	<!--js -->
+
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- AngularJs library -->  
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="angular/home.js"></script>
+
+</body>
+</html>

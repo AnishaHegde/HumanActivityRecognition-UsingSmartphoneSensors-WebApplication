@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Signup - Insighter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- jQuery -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<!--clock init-->
+</head> 
+<body ng-app="userDashboard" ng-controller="userDashboardCntrl">
+	<!--/login-->
+
+	<div class="error_page" >
+		<!--/login-top-->
+
+		<div class="error-top" ng-hide="!profileDetails">
+			<h2 class="inner-tittle page">Insighter</h2>
+			<div class="login">
+				<h3 class="inner-tittle t-inner">Register</h3>
+				<form >
+					
+
+					<input type="text" ng-model="email" placeholder="E-mail address" >
+					<input type="password" ng-model="password" placeholder="Password" >
+					<input type="password" ng-model="cnf_password" placeholder="Confirm Password" >
+
+					<div class="sign-up">
+						<input type="reset" class="btn btn-primary" value="Reset">
+						<input type="button" class="btn btn-primary" value="Continue" ng-click="showProfileDetails();">
+
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="new">
+						<p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>I agree with the terms</label></p>
+						<p class="sign">Already registered ? <a href="/">Login</a></p>
+						<div class="clearfix"></div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+		
+		<div class="error-top" ng-hide="profileDetails">
+			<h2 class="inner-tittle page">Insighter</h2>
+			<div class="login">
+				<h3 class="inner-tittle t-inner">Register</h3>
+				<form >
+					
+
+					<input type="text" ng-model="fName" placeholder="First Name" >
+					<input type="text" ng-model="lName" placeholder="Last Name" >
+					<input type="number" ng-model="phone" placeholder="Mobile Number" >
+
+					<div class="sign-up">
+						<input type="reset" value="Reset" class="btn btn-primary">
+						<input type="button" class="btn btn-primary"  value="Register" ng-click="saveProfileDetails();">
+
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="new">
+						<p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>I agree with the terms</label></p>
+						<p class="sign">Already registered ? <a href="/">Login</a></p>
+						<div class="clearfix"></div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!--//login-top-->
+
+	<!--//login-->
+	<!--footer section start-->
+	<div class="footer">
+		<p>&copy 2016 Insighter . All Rights Reserved</p>
+	</div>
+	<!--footer section end-->
+	<!--/404-->
+	<!--js -->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- AngularJs library -->  
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="angular/home.js"></script>
+</body>
+</html>

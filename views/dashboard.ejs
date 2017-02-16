@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Insighter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Insighter Running Walking Sitting Fall Detection Fall-Detection Health-Montoring " />
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- jQuery -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>	
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<!--Easy Pie Chart-->
+	<!--skycons-icons-->
+	<script type="text/javascript" src="js/skycons.js"></script>
+
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+
+	<!--//skycons-icons-->
+</head> 
+<body ng-app="userDashboard" ng-controller="userDashboardCntrl" ng-init="getCurrentUserDetails();">
+	<div class="page-container">
+		<!--/content-inner-->
+		<div class="left-content">
+			<div class="inner-content">
+				<!-- header-starts -->
+				<div class="header-section">
+					<!--menu-right-->
+					<div class="top_menu">
+					</div>
+
+					<!--/profile_details-->
+					<div class="" style="float: right;">
+						<ul class="nofitications-dropdown">
+							<li class="dropdown note dra-down">
+
+							</li>
+							
+
+							<div class="clearfix"></div>	
+						</ul>
+					</div>
+					<div class="clearfix"></div>	
+					<!--//profile_details-->
+				</div>
+				<!--//menu-right-->
+				<div class="clearfix"></div>
+			</div>
+			<!-- //header-ends -->
+			<div class="outter-wp">
+				<div class="widget-one">
+					<div class="ribbon-one graph" style="padding: 0; border: none;">
+						<!--/ribbon-inner-->
+						<div class="ribbon-inner one">
+							<div class="ribbon1">
+								<div class="ribbon-fold"><h4>Current State</h4></div>
+							</div>
+							<div class="text-center" style=" box-shadow: 5px 5px 5px -1px; padding-bottom: 1em; width: 94.5%;">
+
+								<span id="stateImage"></span>
+								<h1><span class="label label-warning" id="currentStateDiv" style="text-transform: uppercase;"></span></h1>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<!--/ribbon-inner-->
+					</div>
+					<!-- Minutes-->
+					<div class="col-md-3 widget-shadow">
+						<div class="header-top weather2">
+							<h4 class="weather">Steps</h4>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="circle-charts" align="center">	
+
+							<div class="tempStatBox">
+								<div class="tempStat" style="border-color: #FF5733;">{{steps}}</div>
+								<span>No of steps in past 24 hours</span>
+							</div>								
+						</div>
+					</div>
+
+					<!-- Calories-->
+					<div class="col-md-3 widget-shadow">
+						<div class="header-top weather2">
+							<h4 class="weather">Fall Alerts</h4>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="circle-charts" align="center">							
+							 <div class="tempStatBox">
+								<div class="tempStat" style="border-color: #F4D03F;">2</div>
+								<span>Alerts triggered in past 24 hours</span>
+							</div>								
+						</div>
+					</div>
+
+					<!-- Steps-->
+					<div class="col-md-6 widget-shadow">
+						<div class="header-top weather2">
+							<h4 class="weather">Time Spent (Past 24 hrs)</h4>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="circle-charts" align="center">							
+							
+							<div id="chartdiv"></div>
+														
+						</div>
+					</div>
+					
+					<div class="clearfix"> </div>
+				</div>
+
+
+				<!--/charts-->
+				<div class="charts">
+					<div class="chrt-inner">
+						<div class="chrt-bars">
+							
+							<div class="clearfix"> </div>
+						</div>	
+
+					</div>
+					<!--/charts-inner-->
+				</div>
+				<!--//outer-wp-->
+			</div>
+			<!--footer section start-->
+			<footer>
+				<p>&copy 2016 Insighter. All Rights Reserved</p>
+			</footer>
+			<!--footer section end-->
+		</div>
+		<!--/sidebar-menu-->
+		<div class="sidebar-menu">
+			<header class="logo">
+				<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Insighter</h1></span> 
+				<!--<img id="logo" src="" alt="Logo"/>--> 
+			</a> 
+		</header>
+		<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+		<!--/down-->
+		<div class="down">	
+			<a href="/"><img src="images/user.png" width="100" style="border: none; border-radius: 0;"></a>
+			<a href="/"><span class=" name-caret">{{user_profile.firstName}} {{user_profile.lastName}} </span></a>
+			<ul>
+				<li><a class="tooltips" href="/profile"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+				<li><a class="tooltips" href="/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+			</ul>
+		</div>
+		<!--//down-->
+		<div class="menu">
+			<ul id="menu" >
+				<li class="active"><a href="/dashboard"><i class="glyphicon glyphicon-home"></i> <span>Home</span></a></li>
+				<li><a href="/emergencyContact"><i class="glyphicon glyphicon-earphone"></i> <span>Emergency Contact</span></a></li>
+				<li><a href="/locMap"><i class="glyphicon glyphicon-map-marker"></i> <span>Location</span></a></li>
+
+
+
+			</ul>
+		</div>
+	</div>
+</div>
+<!--//content-inner-->
+
+<div class="clearfix"></div>		
+</div>
+<script>
+	var toggle = true;
+
+	$(".sidebar-icon").click(function() {                
+		if (toggle)
+		{
+			$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+			$("#menu span").css({"position":"absolute"});
+		}
+		else
+		{
+			$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+			setTimeout(function() {
+				$("#menu span").css({"position":"relative"});
+			}, 400);
+		}
+
+		toggle = !toggle;
+	});
+</script>
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<!-- AngularJs library -->  
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script type="text/javascript" src="angular/home.js"></script>
+</body>
+</html>
